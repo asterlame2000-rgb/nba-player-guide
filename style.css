@@ -1,0 +1,142 @@
+/* 全站共用樣式。新增球員頁面時請勿修改此檔；各頁只在 <head> 設定 --team-primary / --team-secondary。 */
+:root {
+  --team-primary: #1f2937;
+  --team-secondary: #9ca3af;
+  --on-primary: #ffffff;
+  --text: #1f2430;
+  --muted: #5b6475;
+  --bg: #f4f5f8;
+  --card: #ffffff;
+  --line: #e1e4ea;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+a { color: var(--team-primary); }
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- 頁首 ---------- */
+.hero {
+  background: var(--team-primary);
+  color: var(--on-primary);
+  border-bottom: 8px solid var(--team-secondary);
+  padding: 36px 0 32px;
+}
+.hero a.back { color: var(--on-primary); opacity: .85; font-size: 15px; text-decoration: none; }
+.hero a.back:hover { opacity: 1; text-decoration: underline; }
+.hero .team { margin: 18px 0 0; font-size: 15px; letter-spacing: .06em; color: var(--team-secondary); font-weight: 700; }
+.hero h1 { margin: 4px 0 0; font-size: 40px; line-height: 1.25; }
+.hero .en { margin: 2px 0 0; font-size: 20px; opacity: .92; }
+.hero .meta { margin: 12px 0 0; font-size: 16px; opacity: .92; }
+
+/* ---------- 區塊 ---------- */
+main.wrap { padding-top: 28px; padding-bottom: 8px; }
+
+section.block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin: 0 0 22px;
+}
+section.block > h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  padding-left: 12px;
+  border-left: 6px solid var(--team-secondary);
+}
+
+/* 基本資料 */
+.info { display: grid; grid-template-columns: 7em 1fr; gap: 8px 14px; margin: 0; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; }
+
+/* 榮譽 */
+.honors { margin: 0; padding-left: 1.2em; }
+.honors li { margin: 4px 0; }
+
+/* 故事 */
+.story h3 {
+  margin: 28px 0 6px;
+  font-size: 19px;
+  color: var(--team-primary);
+}
+.story h3:first-of-type { margin-top: 4px; }
+.story p { margin: 0 0 14px; }
+
+/* 數據（展開區塊） */
+details.stats { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+details.stats > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 18px;
+  font-weight: 700;
+  background: var(--team-primary);
+  color: var(--on-primary);
+  display: flex; justify-content: space-between; align-items: center;
+}
+details.stats > summary::-webkit-details-marker { display: none; }
+details.stats > summary::after { content: "＋ 展開"; font-size: 14px; color: var(--team-secondary); }
+details.stats[open] > summary::after { content: "－ 收合"; }
+.table-wrap { overflow-x: auto; }
+table.stats-table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.stats-table th, .stats-table td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.stats-table th:first-child, .stats-table td:first-child,
+.stats-table th:nth-child(2), .stats-table td:nth-child(2) { text-align: left; }
+.stats-table thead th { background: #eef0f5; position: sticky; top: 0; }
+.stats-table tbody tr:nth-child(even) { background: #fafbfc; }
+.stats-table tbody tr.career td { font-weight: 700; background: #eef0f5; border-top: 2px solid var(--team-primary); }
+.stats-note { margin: 10px 4px 14px; font-size: 14px; color: var(--muted); }
+
+/* 資料來源 */
+.sources { font-size: 14px; color: var(--muted); }
+.sources ul { padding-left: 1.2em; margin: 8px 0; }
+.sources li { margin: 3px 0; word-break: break-all; }
+
+/* 頁尾 */
+footer.wrap { padding-top: 8px; padding-bottom: 40px; text-align: center; font-size: 15px; }
+
+/* ---------- 首頁 ---------- */
+.site-head { background: #111827; color: #fff; padding: 40px 0 34px; border-bottom: 8px solid #9ca3af; }
+.site-head h1 { margin: 0; font-size: 34px; }
+.site-head p { margin: 8px 0 0; opacity: .85; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; padding: 0; margin: 0; list-style: none; }
+a.card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 8px solid var(--team-primary);
+  border-radius: var(--radius);
+  padding: 18px 20px 20px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+a.card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.10); }
+a.card .card-team { font-size: 13px; font-weight: 700; color: var(--team-primary); letter-spacing: .05em; }
+a.card h2 { margin: 6px 0 0; font-size: 24px; line-height: 1.3; }
+a.card .card-en { margin: 0; color: var(--muted); }
+a.card .card-meta { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+a.card .card-meta::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--team-secondary); border-radius: 50%; margin-right: 6px; }
+
+/* ---------- 手機 ---------- */
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .hero h1 { font-size: 32px; }
+  section.block { padding: 20px 18px; }
+  .info { grid-template-columns: 5.5em 1fr; }
+}
